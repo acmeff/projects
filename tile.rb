@@ -1,4 +1,4 @@
-require_relative "board"
+
 
 class Tile
   attr_accessor :revealed, :flagged, :bombed
@@ -7,12 +7,20 @@ class Tile
   def initialize(board)
     @bombed = false
     @flagged = false
-    @revealed = false
+    @revealed = true
     @board = board
   end
 
   def reveal
     @revealed = true
+  end
+
+  def flag
+    @flagged = true
+  end
+
+  def bomb
+    @bombed = true
   end
 
   def neighbors(pos)
